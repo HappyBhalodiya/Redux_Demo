@@ -5,14 +5,13 @@ import {
   Text,
   View,
   TextInput,
-  TouchableHighlight,
+  TouchableOpacity,
   ImageBackground
 } from "react-native";
-import Config from "../config";
-import axios from "axios";
 import { connect } from "react-redux";
 import Toast from "react-native-simple-toast";
 import Api from "../service"
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 class Signup extends React.Component {
   constructor(props) {
@@ -52,6 +51,8 @@ class Signup extends React.Component {
                 Sign Up
               </Text>
               <View style={styles.inputContainer}>
+              <Icon name={"email-outline"} size={20} color="#606060" style={{margin:10}} />
+                
                 <TextInput
                   style={styles.inputs}
                   placeholder="Email"
@@ -62,6 +63,7 @@ class Signup extends React.Component {
               </View>
 
               <View style={styles.inputContainer}>
+              <Icon name={"lock-outline"} size={20} color="#606060" style={{margin:10}} />
                 <TextInput
                   style={styles.inputs}
                   ref={input => {
@@ -75,12 +77,12 @@ class Signup extends React.Component {
               </View>
 
               <View style={styles.inputContainer1}>
-                <TouchableHighlight
+                <TouchableOpacity
                   style={[styles.buttonContainer, styles.loginButton]}
                   onPress={() => this.props.signup(this.state)}
                 >
                   <Text style={styles.signUpText}>Register</Text>
-                </TouchableHighlight>
+                </TouchableOpacity>
               </View>
               <View style={styles.inputContainer1}>
                 <Text
@@ -89,11 +91,11 @@ class Signup extends React.Component {
                   {" "}
                   Already have an account.{" "}
                 </Text>
-                <TouchableHighlight onPress={() => navigate("Login")}>
+                <TouchableOpacity onPress={() => navigate("Login")}>
                   <Text style={{ fontSize: 15, fontWeight: "bold" }}>
                     Log in{" "}
                   </Text>
-                </TouchableHighlight>
+                </TouchableOpacity>
               </View>
             </View>
             <View
@@ -159,7 +161,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     width: 280,
     height: 45,
-    marginBottom: 20
+    marginBottom: 20,
+    flexDirection: 'row',
   },
   inputContainer1: {
     width: 250,
