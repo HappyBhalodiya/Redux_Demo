@@ -18,7 +18,7 @@ class Display extends React.Component {
   }
 }
 function mapStateToProps(state) {
-  console.log("==================display", state)
+
 
   return {
     email: state.email,
